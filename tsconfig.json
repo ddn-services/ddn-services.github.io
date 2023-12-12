@@ -1,5 +1,12 @@
 {
     "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noPropertyAccessFromIndexSignature": false,
+        "importHelpers": true,
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -19,5 +26,6 @@
         "paths": {
             "src/*": ["./src/*"]
         }
-    }
+    },
+    "exclude": ["node_modules", "tmp", "**/*.spec.tsx"]
 }
