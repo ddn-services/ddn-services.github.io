@@ -1,8 +1,4 @@
-import {
-    API_SUCCESS,
-    API_FAIL,
-    GET_WALLET_DATA
-} from "./actionType";
+import { API_SUCCESS, API_FAIL, GET_WALLET_DATA } from './actionType';
 
 const INIT_STATE = {
     walletbalanceData: []
@@ -34,6 +30,5 @@ const DashboardCrypto = (state = INIT_STATE, action) => {
             return state;
     }
 };
-
 
 export default DashboardCrypto;

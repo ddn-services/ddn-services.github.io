@@ -1,9 +1,9 @@
-import { call, put, takeEvery, all, fork } from "redux-saga/effects";
-import { GET_WALLET_DATA } from "./actionType";
+import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
+import { GET_WALLET_DATA } from './actionType';
 import { DashboardCryptoapiSuccess, DashboardCryptoapiFail } from './actions';
 
 //Include Both Helper File with needed methods
-import { walletBalanceData as walletBalanceDataApi } from "../../helpers/fakebackend_helper";
+import { walletBalanceData as walletBalanceDataApi } from '../../helpers/fakebackend_helper';
 
 function* getWalletDalanceData({ payload: month }) {
     try {

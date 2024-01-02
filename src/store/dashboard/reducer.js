@@ -1,8 +1,4 @@
-import {
-    API_SUCCESS,
-    API_FAIL,
-    GET_CHARTS_DATA
-} from "./actionTypes";
+import { API_SUCCESS, API_FAIL, GET_CHARTS_DATA } from './actionTypes';
 
 const INIT_STATE = {
     chartsData: []
@@ -28,14 +24,12 @@ const Dashboard = (state = INIT_STATE, action) => {
                         chartsDataError: action.payload.error
                     };
 
-
                 default:
                     return state;
             }
         default:
             return state;
     }
-}
-
+};
 
 export default Dashboard;

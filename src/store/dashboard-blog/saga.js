@@ -1,9 +1,9 @@
-import { call, put, takeEvery, all, fork } from "redux-saga/effects";
+import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
 import { GET_VISITOR_DATA } from './actionType';
 import { dashboardBlogApiSuccess, dashboardBlogApiError } from './actions';
 
 //Include Both Helper File with needed methods
-import { visitorData as visitorDataApi } from "../../helpers/fakebackend_helper";
+import { visitorData as visitorDataApi } from '../../helpers/fakebackend_helper';
 
 function* getvisitorData({ payload: visitor }) {
     try {

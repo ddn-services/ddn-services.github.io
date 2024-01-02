@@ -1,15 +1,11 @@
-import { call, put, takeEvery, all, fork } from "redux-saga/effects";
+import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
 
 // Crypto Redux States
-import { GET_TOP_SELLING_PRODUCT, GET_EARNING_DATA } from "./actionType";
-import { DashboardSaasapiSuccess, DashboardSaasapiFail } from "./actions";
+import { GET_TOP_SELLING_PRODUCT, GET_EARNING_DATA } from './actionType';
+import { DashboardSaasapiSuccess, DashboardSaasapiFail } from './actions';
 
 //Include Both Helper File with needed methods
-import {
-    topSellingData as topSellingDataApi,
-    getEarningChartsData as getEarningChartsDataApi
-}
-    from "../../helpers/fakebackend_helper";
+import { topSellingData as topSellingDataApi, getEarningChartsData as getEarningChartsDataApi } from '../../helpers/fakebackend_helper';
 
 function* getSellingData({ payload: month }) {
     try {
@@ -19,7 +15,6 @@ function* getSellingData({ payload: month }) {
         yield put(DashboardSaasapiFail(GET_TOP_SELLING_PRODUCT, error));
     }
 }
-
 
 function* getEarningChartsData({ payload: month }) {
     try {
@@ -38,11 +33,8 @@ export function* watchGetEarningChartsData() {
     yield takeEvery(GET_EARNING_DATA, getEarningChartsData);
 }
 
-
 function* dashboardSaasSaga() {
-    yield all([fork(watchGetSellingdata)],
-        yield all([fork(watchGetEarningChartsData)])
-    );
+    yield all([fork(watchGetSellingdata)], yield all([fork(watchGetEarningChartsData)]));
 }
 
 export default dashboardSaasSaga;

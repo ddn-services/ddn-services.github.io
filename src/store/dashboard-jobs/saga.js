@@ -1,9 +1,9 @@
-import { call, put, takeEvery, all, fork } from "redux-saga/effects";
-import { GET_STATISTICS_DATA } from "./actionType";
+import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
+import { GET_STATISTICS_DATA } from './actionType';
 import { getdashboardJobApiSuccess, getdashboardJobApiError } from './actions';
 
 //Include Both Helper File with needed methods
-import { getStatisticData as getStatisticDataApi } from "../../helpers/fakebackend_helper";
+import { getStatisticData as getStatisticDataApi } from '../../helpers/fakebackend_helper';
 
 function* getStatisticData({ payload: duartion }) {
     try {

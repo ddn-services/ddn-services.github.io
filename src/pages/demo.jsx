@@ -2,7 +2,6 @@ import React from 'react';
 
 import DataTable from 'react-data-table-component';
 
-
 const FilterComponent = () => {
     return (
         <React.Fragment>
@@ -13,71 +12,70 @@ const FilterComponent = () => {
 const columns = [
     {
         name: 'Title',
-        selector: row => row.title,
+        selector: (row) => row.title
     },
     {
         name: 'Year',
-        selector: row => row.year,
-    },
+        selector: (row) => row.year
+    }
 ];
 
 const data = [
     {
         id: 1,
         title: 'Beetlejuice',
-        year: '1988',
+        year: '1988'
     },
     {
         id: 2,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 3,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 4,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 5,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 6,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 7,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 8,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 9,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 10,
         title: 'Ghostbusters',
-        year: '1984',
+        year: '1984'
     },
     {
         id: 11,
         title: 'Ghostbusters',
-        year: '1984',
-    },
-
+        year: '1984'
+    }
 ];
 
 function Demo() {
@@ -95,22 +93,12 @@ function Demo() {
             }
         };
 
-        return (
-            <FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText} />
-        );
+        return <FilterComponent onFilter={(e) => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText} />;
     }, [filterText, resetPaginationToggle]);
     return (
         <div className="page-content">
-            <DataTable
-                columns={columns}
-                data={data}
-                pagination
-                subHeader
-                subHeaderComponent={subHeaderComponentMemo}
-                selectableRows
-                persistTableHead
-            />
+            <DataTable columns={columns} data={data} pagination subHeader subHeaderComponent={subHeaderComponentMemo} selectableRows persistTableHead />
         </div>
     );
-};
+}
 export default Demo;

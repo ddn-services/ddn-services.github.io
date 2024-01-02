@@ -10,7 +10,6 @@ export const getdashboardJobApiError = (actionType, error) => ({
     payload: { actionType, error }
 });
 
-
 export const getStatisticData = (duartion) => ({
     type: GET_STATISTICS_DATA,
     payload: duartion

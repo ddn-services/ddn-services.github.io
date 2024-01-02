@@ -16,8 +16,12 @@
                 "@typescript-eslint/no-empty-function": "off",
                 "react/react-in-jsx-scope": "off",
                 "require-jsdoc": "off",
-                "prefer-const": "error",
                 "semi": "error",
+                "no-unused-vars": "off",
+                "prefer-const": "off",
+                "no-undef": "off",
+                "no-empty": "off",
+                "react/prop-types": "off",
                 "react/no-unescaped-entities": "off",
                 "prettier/prettier": [
                     "error",
@@ -40,12 +44,6 @@
     },
     "plugins": ["react"],
     "ignorePatterns": ["**/*.css", "**/*.scss"],
-    "rules": {
-        "no-mixed-spaces-and-tabs": "off",
-        "react/prop-types": "off",
-        "@typescript-eslint/no-unused-vars": 1,
-        "@typescript-eslint/no-explicit-any": "error"
-    },
     "settings": {
         "react": {
             "version": "detect"

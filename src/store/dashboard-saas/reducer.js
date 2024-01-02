@@ -1,9 +1,4 @@
-import {
-    API_SUCCESS,
-    API_FAIL,
-    GET_TOP_SELLING_PRODUCT,
-    GET_EARNING_DATA
-} from "./actionType";
+import { API_SUCCESS, API_FAIL, GET_TOP_SELLING_PRODUCT, GET_EARNING_DATA } from './actionType';
 
 const INIT_STATE = {
     sellingData: [],
@@ -42,14 +37,12 @@ const DashboardSaas = (state = INIT_STATE, action) => {
                         earningChartDataError: action.payload.error
                     };
 
-
                 default:
                     return state;
             }
         default:
             return state;
     }
-}
-
+};
 
 export default DashboardSaas;

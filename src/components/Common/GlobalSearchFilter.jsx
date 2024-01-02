@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Col } from 'reactstrap';
 
 //Date Picker
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const JobListGlobalFilter = () => {
     const [selectDate, setSelectDate] = useState();
     const dateChange = (date) => {
-        setSelectDate(date)
+        setSelectDate(date);
     };
     return (
-        <React.Fragment>    
+        <React.Fragment>
             <Col xxl={2} lg={6}>
                 <select className="form-control select2 mb-3 mb-xxl-0">
                     <option>Status</option>
@@ -29,21 +29,17 @@ const JobListGlobalFilter = () => {
             </Col>
             <Col xxl={2} lg={4}>
                 <div id="datepicker1">
-                    <DatePicker
-                        className="form-control mb-3 mb-xxl-0"
-                        selected={selectDate}
-                        onChange={dateChange}
-                    />
+                    <DatePicker className="form-control mb-3 mb-xxl-0" selected={selectDate} onChange={dateChange} />
                 </div>
             </Col>
             <Col xxl={1} lg={4}>
-                <div className='mb-3 mb-xxl-0'>
+                <div className="mb-3 mb-xxl-0">
                     <button type="button" className="btn btn-soft-secondary w-100">
-                        <i className="mdi mdi-filter-outline align-middle"></i> Filter</button>
+                        <i className="mdi mdi-filter-outline align-middle"></i> Filter
+                    </button>
                 </div>
             </Col>
         </React.Fragment>
-    )
+    );
 };
 export default JobListGlobalFilter;
-
