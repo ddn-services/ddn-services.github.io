@@ -1,11 +1,39 @@
 {
   "name": "@ddnsoftware/source",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "title": "DevDaNang Software Introduction",
+  "description": "This is the system dashboard using the services provided by DDN Services",
+  "author": {
+    "name": "DevDaNang"
+  },
   "license": "MIT",
-  "scripts": {},
+  "homepage": "https://ddn-services.github.io",
+  "scripts": {
+    "start:local": "env-cmd -f .local.env nx serve",
+    "start:investor-local": "env-cmd -f .local.env nx serve investor-hcm-apps --port 3000",
+    "start:dev": "env-cmd -f .dev.env nx serve",
+    "start:investor-dev": "env-cmd -f .dev.env nx serve investor-hcm-apps --port 3000",
+    "start:uat": "env-cmd -f .uat.env nx serve",
+    "start:investor-uat": "env-cmd -f .uat.env nx serve investor-hcm-apps --port 3000",
+    "build": "npx nx run-many --target=build --all",
+    "test": "nx test",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write . --config ./.prettierrc",
+    "postinstall": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "npx lint:fix"
+    ]
+  },
   "private": true,
   "dependencies": {
     "@nx/next": "17.2.8",
+    "husky": "^8.0.3",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
