@@ -1,10 +1,10 @@
 //@ts-check
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { composePlugins, withNx } = require('./.nx-helpers/compiled.js');
+const { composePlugins, withNx } = require('@nx/next');
 
 /**
- * @type {import('./.nx-helpers/compiled.js').WithNxOptions}
+ * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
   nx: {
