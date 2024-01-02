@@ -12,15 +12,12 @@ import ForgetPwd from '../pages/Authentication/ForgetPassword';
 
 // Dashboard
 import Dashboard from '../pages/Dashboard/index';
+import { ROUTER_STRING } from '../constants';
 
 const authProtectedRoutes = [
-    { path: '/dashboard', component: <Dashboard /> },
+    { path: ROUTER_STRING.DASHBOARD_PAGE, component: <Dashboard /> },
 
-    // //profile
-    { path: '/profile', component: <UserProfile /> },
-
-    // this route should be at the end of all other routes
-    // eslint-disable-next-line react/display-name
+    { path: ROUTER_STRING.PROFILE_PAGE, component: <UserProfile /> },
     {
         path: '/',
         exact: true,
@@ -29,10 +26,10 @@ const authProtectedRoutes = [
 ];
 
 const publicRoutes = [
-    { path: '/logout', component: <Logout /> },
-    { path: '/login', component: <Login /> },
-    { path: '/forgot-password', component: <ForgetPwd /> },
-    { path: '/register', component: <Register /> }
+    { path: ROUTER_STRING.LOGOUT_PAGE, component: <Logout /> },
+    { path: ROUTER_STRING.LOGIN_PAGE, component: <Login /> },
+    { path: ROUTER_STRING.FORGOT_PASSWORD_PAGE, component: <ForgetPwd /> },
+    { path: ROUTER_STRING.REGISTER_PAGE, component: <Register /> }
 ];
 
 export { authProtectedRoutes, publicRoutes };

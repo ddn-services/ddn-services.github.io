@@ -42,7 +42,8 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["react"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["react", "vue", "@typescript-eslint"],
     "ignorePatterns": ["**/*.css", "**/*.scss"],
     "settings": {
         "react": {

@@ -21,7 +21,7 @@ import logo from '../../assets/images/logo.svg';
 
 const Login = (props) => {
     //meta title
-    document.title = 'Login | Skote - Vite React Admin & Dashboard Template';
+    document.title = 'Login | DDN Software';
     const dispatch = useDispatch();
 
     const validation = useFormik({

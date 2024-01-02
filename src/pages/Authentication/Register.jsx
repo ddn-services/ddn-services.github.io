@@ -18,7 +18,7 @@ import profileImg from '../../assets/images/profile-img.png';
 import logoImg from '../../assets/images/logo.svg';
 
 const Register = (props) => {
-    document.title = 'Register | Skote - Vite React Admin & Dashboard Template';
+    document.title = 'Register | DDN Software';
 
     const dispatch = useDispatch();
 

@@ -18290,7 +18290,7 @@ attempted value: ${s}
         HI = '/assets/profile-img-711d39f0.png',
         th = '/assets/logo-19d47add.svg',
         R5 = (t) => {
-            document.title = 'Login | Skote - Vite React Admin & Dashboard Template';
+            document.title = 'Login | DDN Software';
             const e = Dc(),
                 n = BE({
                     enableReinitialize: !0,
@@ -18471,7 +18471,7 @@ attempted value: ${s}
     P5.propTypes = { history: R.object };
     const rIe = us(P5),
         iIe = (t) => {
-            document.title = 'Register | Skote - Vite React Admin & Dashboard Template';
+            document.title = 'Register | DDN Software';
             const e = Dc(),
                 n = BE({
                     enableReinitialize: !0,
@@ -18665,7 +18665,7 @@ attempted value: ${s}
             );
         },
         O5 = (t) => {
-            document.title = 'Forget Password | Skote - Vite React Admin & Dashboard Template';
+            document.title = 'Forget Password | DDN Software';
             const e = Dc(),
                 n = BE({
                     enableReinitialize: !0,
@@ -30717,7 +30717,7 @@ function print() { __p += __j.call(arguments, '') }
             D.useEffect(() => {
                 const p = o.pathname,
                     g = p.charAt(1).toUpperCase() + p.slice(2);
-                document.title = g + ' | Skote - Vite React Admin & Dashboard Template';
+                document.title = g + ' | DDN Software';
             }, [o.pathname]),
                 D.useEffect(() => {
                     window.scrollTo(0, 0);
