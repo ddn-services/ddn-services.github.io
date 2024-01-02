@@ -7,8 +7,11 @@
         "name": "DevDaNang"
     },
     "private": false,
+    "homepage": "https://ddn-services.github.io",
     "type": "module",
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "dev": "env-cmd -f .env.development vite",
         "build": "GENERATE_SOURCEMAP=false vite build",
         "preview": "vite preview",
@@ -50,6 +53,7 @@
         "eslint-plugin-react": "^7.33.2",
         "firebase": "^10.7.1",
         "formik": "^2.4.5",
+        "gh-pages": "^6.1.1",
         "husky": "^8.0.3",
         "lodash": "^4.17.21",
         "metismenujs": "^1.4.0",
