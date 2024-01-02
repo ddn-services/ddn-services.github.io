@@ -108,7 +108,7 @@
         color: var(--#{$prefix}gray-700) !important;
     }
 
-    &:not([dir="rtl"]) .tox-toolbar__group:not(:last-of-type) {
+    &:not([dir='rtl']) .tox-toolbar__group:not(:last-of-type) {
         border-right: 1px solid var(--#{$prefix}border-color) !important;
     }
 

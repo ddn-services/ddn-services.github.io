@@ -75,7 +75,6 @@
     }
 }
 
-
 .w-xs {
     min-width: 80px;
 }
@@ -96,7 +95,6 @@
     min-width: 160px;
 }
 
-
 // alert
 
 .alert-dismissible {
@@ -107,7 +105,7 @@
     }
 }
 
-[data-layout-mode="dark"] {
+[data-layout-mode='dark'] {
     .btn-close {
         filter: invert(1) grayscale(100%) brightness(200%);
     }

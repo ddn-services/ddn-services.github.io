@@ -1,4 +1,3 @@
-
 //
 // apexcharts.scss
 //
@@ -45,7 +44,7 @@
     }
 }
 
-[data-layout-mode="dark"] {
+[data-layout-mode='dark'] {
     .apexcharts-gridline {
         stroke: var(--#{$prefix}gray-300);
     }

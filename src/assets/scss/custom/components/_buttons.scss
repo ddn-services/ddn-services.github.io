@@ -25,7 +25,7 @@ a {
         }
 
         &:before {
-            content: "OR";
+            content: 'OR';
             position: absolute;
             font-size: 10px;
             width: 24px;
@@ -69,17 +69,15 @@ a {
     }
 }
 
-
-.btn-group-vertical{
+.btn-group-vertical {
     label {
         margin-bottom: 0px;
     }
 }
 
-
 //
 // Soft Buttons
-// 
+//
 
 @mixin button-variant-soft($bg) {
     color: $bg;
@@ -95,8 +93,7 @@ a {
     }
 }
 
-@each $color,
-$value in $theme-colors {
+@each $color, $value in $theme-colors {
     .btn-soft-#{$color} {
         @include button-variant-soft($value);
     }
@@ -107,7 +104,7 @@ $value in $theme-colors {
         .bx-heart {
             color: $danger;
             &:before {
-                content: "\ec8f";
+                content: '\ec8f';
             }
         }
     }

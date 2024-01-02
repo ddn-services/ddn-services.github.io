@@ -19,7 +19,7 @@
         color: $info;
     }
     &.swal2-success {
-        [class^="swal2-success-line"] {
+        [class^='swal2-success-line'] {
             background-color: $success;
         }
 
@@ -63,8 +63,9 @@
     background: var(--#{$prefix}custom-white);
 }
 
-.swal2-title, .swal2-html-container{
-     color: var(--#{$prefix}gray-700);
+.swal2-title,
+.swal2-html-container {
+    color: var(--#{$prefix}gray-700);
 }
 
 .swal2-file,

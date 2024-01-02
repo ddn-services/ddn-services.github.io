@@ -25,7 +25,7 @@
 .chat-noti-dropdown {
     &.active {
         &:before {
-            content: "";
+            content: '';
             position: absolute;
             width: 8px;
             height: 8px;
@@ -114,7 +114,7 @@
         }
 
         &:before {
-            content: "";
+            content: '';
             position: absolute;
             width: 100%;
             height: 1px;
@@ -193,8 +193,8 @@
     .last-chat {
         .conversation-list {
             &:before {
-                content: "\F0009";
-                font-family: "Material Design Icons";
+                content: '\F0009';
+                font-family: 'Material Design Icons';
                 position: absolute;
                 color: $primary;
                 right: 0;

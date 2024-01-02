@@ -17811,7 +17811,7 @@ attempted value: ${s}
     Lbe.displayName = 'Form';
     function us(t) {
         function e(n) {
-            let r = Qa(),
+            const r = Qa(),
                 i = fE(),
                 s = dre();
             return d.jsx(t, { ...n, router: { location: r, navigate: i, params: s } });
@@ -18441,8 +18441,7 @@ attempted value: ${s}
                                                     children: [
                                                         '© ',
                                                         new Date().getFullYear(),
-                                                        ' Skote. Crafted with',
-                                                        ' ',
+                                                        ' Skote. Crafted with ',
                                                         d.jsx('i', { className: 'mdi mdi-heart text-danger' }),
                                                         ' by Themesbrand'
                                                     ]
@@ -18649,8 +18648,7 @@ attempted value: ${s}
                                                         children: [
                                                             '© ',
                                                             new Date().getFullYear(),
-                                                            ' Skote. Crafted with',
-                                                            ' ',
+                                                            ' Skote. Crafted with ',
                                                             d.jsx('i', { className: 'mdi mdi-heart text-danger' }),
                                                             ' by Themesbrand'
                                                         ]
@@ -18781,8 +18779,7 @@ attempted value: ${s}
                                                     children: [
                                                         '© ',
                                                         new Date().getFullYear(),
-                                                        ' Skote. Crafted with',
-                                                        ' ',
+                                                        ' Skote. Crafted with ',
                                                         d.jsx('i', { className: 'mdi mdi-heart text-danger' }),
                                                         ' by Themesbrand'
                                                     ]
@@ -30718,8 +30715,8 @@ function print() { __p += __j.call(arguments, '') }
                 })),
                 o = Qa();
             D.useEffect(() => {
-                const p = o.pathname;
-                let g = p.charAt(1).toUpperCase() + p.slice(2);
+                const p = o.pathname,
+                    g = p.charAt(1).toUpperCase() + p.slice(2);
                 document.title = g + ' | Skote - Vite React Admin & Dashboard Template';
             }, [o.pathname]),
                 D.useEffect(() => {
@@ -34589,39 +34586,11 @@ function print() { __p += __j.call(arguments, '') }
                 Currentdata: [18, 21, 45, 36, 65, 47, 51, 32, 40, 28, 31, 26],
                 Previousdata: [30, 11, 22, 18, 32, 23, 58, 45, 30, 36, 15, 34]
             }
-        };
-    let Ci = [{ uid: 1, username: 'admin', role: 'admin', password: '123456', email: 'admin@themesbrand.com' }];
-    const TMe = () => {
-        const t = new Nje(rh, { onNoMatch: 'passthrough' });
-        t.onPost(Jz).reply((e) => {
-            const n = JSON.parse(e.data);
-            return (
-                Ci.push(n),
-                new Promise((r, i) => {
-                    setTimeout(() => {
-                        r([200, n]);
-                    });
-                })
-            );
-        }),
-            t.onPost('/post-fake-login').reply((e) => {
-                const n = JSON.parse(e.data),
-                    r = Ci.filter((i) => i.email === n.email && i.password === n.password);
-                return new Promise((i, s) => {
-                    setTimeout(() => {
-                        r.length === 1 ? i([200, r[0]]) : s(['Username and password are invalid. Please enter correct username and password']);
-                    });
-                });
-            }),
-            t.onPost('/fake-forget-pwd').reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            n([200, 'Check you mail and reset your password.']);
-                        });
-                    })
-            ),
-            t.onPost('/post-jwt-register').reply((e) => {
+        },
+        Ci = [{ uid: 1, username: 'admin', role: 'admin', password: '123456', email: 'admin@themesbrand.com' }],
+        TMe = () => {
+            const t = new Nje(rh, { onNoMatch: 'passthrough' });
+            t.onPost(Jz).reply((e) => {
                 const n = JSON.parse(e.data);
                 return (
                     Ci.push(n),
@@ -34632,687 +34601,715 @@ function print() { __p += __j.call(arguments, '') }
                     })
                 );
             }),
-            t.onPost('/post-jwt-login').reply((e) => {
-                const n = JSON.parse(e.data),
-                    r = Ci.filter((i) => i.email === n.email && i.password === n.password);
-                return new Promise((i, s) => {
-                    setTimeout(() => {
-                        if (r.length === 1) {
-                            const o = iv,
-                                a = n.name,
-                                c = { accessToken: o, username: a },
-                                h = { ...r[0], ...c, ...n.name };
-                            i([200, h]);
-                        } else s([400, 'Username and password are invalid. Please enter correct username and password']);
+                t.onPost('/post-fake-login').reply((e) => {
+                    const n = JSON.parse(e.data),
+                        r = Ci.filter((i) => i.email === n.email && i.password === n.password);
+                    return new Promise((i, s) => {
+                        setTimeout(() => {
+                            r.length === 1 ? i([200, r[0]]) : s(['Username and password are invalid. Please enter correct username and password']);
+                        });
                     });
-                });
-            }),
-            t.onPost('/post-jwt-profile').reply((e) => {
-                const n = JSON.parse(e.data);
-                let i = e.headers.Authorization;
-                const s = Ci.filter((o) => o.uid === n.idx);
-                return new Promise((o, a) => {
-                    setTimeout(() => {
-                        if (i === iv)
-                            if (s.length === 1) {
-                                let c;
-                                (c = Ci.findIndex((h) => h.uid === n.idx)),
-                                    (Ci[c].username = n.username),
+                }),
+                t.onPost('/fake-forget-pwd').reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                n([200, 'Check you mail and reset your password.']);
+                            });
+                        })
+                ),
+                t.onPost('/post-jwt-register').reply((e) => {
+                    const n = JSON.parse(e.data);
+                    return (
+                        Ci.push(n),
+                        new Promise((r, i) => {
+                            setTimeout(() => {
+                                r([200, n]);
+                            });
+                        })
+                    );
+                }),
+                t.onPost('/post-jwt-login').reply((e) => {
+                    const n = JSON.parse(e.data),
+                        r = Ci.filter((i) => i.email === n.email && i.password === n.password);
+                    return new Promise((i, s) => {
+                        setTimeout(() => {
+                            if (r.length === 1) {
+                                const o = iv,
+                                    a = n.name,
+                                    c = { accessToken: o, username: a },
+                                    h = { ...r[0], ...c, ...n.name };
+                                i([200, h]);
+                            } else s([400, 'Username and password are invalid. Please enter correct username and password']);
+                        });
+                    });
+                }),
+                t.onPost('/post-jwt-profile').reply((e) => {
+                    const n = JSON.parse(e.data),
+                        i = e.headers.Authorization,
+                        s = Ci.filter((o) => o.uid === n.idx);
+                    return new Promise((o, a) => {
+                        setTimeout(() => {
+                            if (i === iv)
+                                if (s.length === 1) {
+                                    let c;
+                                    (c = Ci.findIndex((h) => h.uid === n.idx)),
+                                        (Ci[c].username = n.username),
+                                        localStorage.removeItem('authUser'),
+                                        localStorage.setItem('authUser', JSON.stringify(Ci[c])),
+                                        o([200, 'Profile Updated Successfully']);
+                                } else a([400, 'Something wrong for edit profile']);
+                            else a([400, 'Invalid Token !!']);
+                        });
+                    });
+                }),
+                t.onPost('/post-fake-profile').reply((e) => {
+                    const n = JSON.parse(e.data),
+                        r = Ci.filter((i) => i.uid === n.idx);
+                    return new Promise((i, s) => {
+                        setTimeout(() => {
+                            if (r.length === 1) {
+                                let o;
+                                (o = Ci.findIndex((a) => a.uid === n.idx)),
+                                    (Ci[o].username = n.username),
                                     localStorage.removeItem('authUser'),
-                                    localStorage.setItem('authUser', JSON.stringify(Ci[c])),
-                                    o([200, 'Profile Updated Successfully']);
-                            } else a([400, 'Something wrong for edit profile']);
-                        else a([400, 'Invalid Token !!']);
+                                    localStorage.setItem('authUser', JSON.stringify(Ci[o])),
+                                    i([200, 'Profile Updated Successfully']);
+                            } else s([400, 'Something wrong for edit profile']);
+                        });
                     });
-                });
-            }),
-            t.onPost('/post-fake-profile').reply((e) => {
-                const n = JSON.parse(e.data),
-                    r = Ci.filter((i) => i.uid === n.idx);
-                return new Promise((i, s) => {
-                    setTimeout(() => {
-                        if (r.length === 1) {
-                            let o;
-                            (o = Ci.findIndex((a) => a.uid === n.idx)),
-                                (Ci[o].username = n.username),
-                                localStorage.removeItem('authUser'),
-                                localStorage.setItem('authUser', JSON.stringify(Ci[o])),
-                                i([200, 'Profile Updated Successfully']);
-                        } else s([400, 'Something wrong for edit profile']);
+                }),
+                t.onPost('/jwt-forget-pwd').reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                n([200, 'Check you mail and reset your password.']);
+                            });
+                        })
+                ),
+                t.onPost('/social-login').reply((e) => {
+                    const n = JSON.parse(e.data);
+                    return new Promise((r, i) => {
+                        setTimeout(() => {
+                            if (n && n.token) {
+                                const s = iv,
+                                    o = n.name,
+                                    a = { accessToken: s, username: o },
+                                    c = { ...n[0], ...a, ...n.name };
+                                r([200, c]);
+                            } else i([400, 'Username and password are invalid. Please enter correct username and password']);
+                        });
                     });
-                });
-            }),
-            t.onPost('/jwt-forget-pwd').reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            n([200, 'Check you mail and reset your password.']);
-                        });
-                    })
-            ),
-            t.onPost('/social-login').reply((e) => {
-                const n = JSON.parse(e.data);
-                return new Promise((r, i) => {
-                    setTimeout(() => {
-                        if (n && n.token) {
-                            const s = iv,
-                                o = n.name,
-                                a = { accessToken: s, username: o },
-                                c = { ...n[0], ...a, ...n.name };
-                            r([200, c]);
-                        } else i([400, 'Username and password are invalid. Please enter correct username and password']);
-                    });
-                });
-            }),
-            t.onGet(Qz).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            xy ? e([200, xy]) : n([400, 'Cannot get products']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${Yz}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (xy) {
-                                const { params: i } = e,
-                                    s = xy.find((o) => o.id.toString() === i.id.toString());
-                                n([200, { ...s, recentProducts: aMe, comments: lMe }]);
-                            } else r([400, 'Cannot get product detail']);
-                        });
-                    })
-            ),
-            t.onGet(rG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            YL ? e([200, YL]) : n([400, 'Cannot get events']);
-                        });
-                    })
-            ),
-            t.onGet(Zz).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            ys.folders ? e([200, ys.folders]) : n([400, 'Cannot get folder']);
-                        });
-                    })
-            ),
-            t.onPost(Xz).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (ys.allmail) {
-                                const i = JSON.parse(e.data),
-                                    { params: s } = i;
-                                let o = [],
-                                    a = s;
-                                if ((a || (a = 0), a !== 6)) {
-                                    const c = ys.folders.find((h) => h.id === a).id;
-                                    o = ys.allmail.filter((h) => h.folder === c);
-                                } else o = ys.allmail.filter((c) => c.starred === !0);
-                                n([200, o]);
-                            } else r([400, 'Cannot get allmail']);
-                        });
-                    })
-            ),
-            t.onPost(eG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (e && e.data) {
-                                const i = JSON.parse(e.data),
-                                    s = Object.keys(i).map((o) => parseInt(i[o]));
-                                n([200, s.length > 1 ? s : i[0]]);
-                            } else r([400, 'Cannot add selected mails']);
-                        });
-                    })
-            ),
-            t.onPost(tG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (e && e.data) {
-                                const i = JSON.parse(e.data),
-                                    { selectedmails: s, folderId: o } = i;
-                                (ys.allmail = ys.allmail.map((a) => (s.includes(a.id) ? { ...a, folder: parseInt(o) } : a))), n([200]);
-                            } else r([400, 'Cannot add selected mails']);
-                        });
-                    })
-            ),
-            t.onPut(nG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (e && e.data) {
-                                const i = JSON.parse(e.data);
-                                (ys.allmail = ys.allmail.map((s) => (s.id === i.id ? { ...s, ...i } : s))), n([200, i]);
-                            } else r([400, 'Cannot update mail data']);
-                        });
-                    })
-            ),
-            t.onPost(UG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot add user']);
-                        });
-                    })
-            ),
-            t.onPut(BG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot update user']);
-                        });
-                    })
-            ),
-            t.onDelete(zG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.headers ? n([200, e.headers.user]) : r([400, 'Cannot delete user']);
-                        });
-                    })
-            ),
-            t.onPost(LG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot add project']);
-                        });
-                    })
-            ),
-            t.onPut(jG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot update project']);
-                        });
-                    })
-            ),
-            t.onDelete(MG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.headers ? n([200, e.headers.project]) : r([400, 'Cannot delete project']);
-                        });
-                    })
-            ),
-            t.onPost(iG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot add event']);
-                        });
-                    })
-            ),
-            t.onPut(sG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot update event']);
-                        });
-                    })
-            ),
-            t.onDelete(oG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.headers ? n([200, e.headers.event]) : r([400, 'Cannot delete event']);
-                        });
-                    })
-            ),
-            t.onGet(aG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            XL ? e([200, XL]) : n([400, 'Cannot get categories']);
-                        });
-                    })
-            ),
-            t.onGet(lG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            qL ? e([200, qL]) : n([400, 'Cannot get chats']);
-                        });
-                    })
-            ),
-            t.onGet(cG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            KL ? e([200, KL]) : n([400, 'Cannot get groups']);
-                        });
-                    })
-            ),
-            t.onGet(uG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            JL ? e([200, JL]) : n([400, 'Cannot get contacts']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${dG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (QL) {
-                                const { params: i } = e,
-                                    s = QL.filter((o) => o.roomId === i.roomId);
-                                n([200, s]);
-                            } else r([400, 'Cannot get messages']);
-                        });
-                    })
-            ),
-            t.onPost(hG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e.data ? n([200, e.data]) : r([400, 'Cannot add message']);
-                        });
-                    })
-            ),
-            t.onGet(fG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            zL ? e([200, zL]) : n([400, 'Cannot get orders']);
-                        });
-                    })
-            ),
-            t.onPost(pG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot add order']);
-                        });
-                    })
-            ),
-            t.onPut(mG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot update order']);
-                        });
-                    })
-            ),
-            t.onDelete(gG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.headers ? n([200, e.headers.order]) : r([400, 'Cannot delete order']);
-                        });
-                    })
-            ),
-            t.onGet(yG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            GL ? e([200, GL]) : n([400, 'Cannot get cart data']);
-                        });
-                    })
-            ),
-            t.onGet(vG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            WL ? e([200, WL]) : n([400, 'Cannot get customers data']);
-                        });
-                    })
-            ),
-            t.onPost(_G).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot add customer']);
-                        });
-                    })
-            ),
-            t.onPut(EG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot update customer']);
-                        });
-                    })
-            ),
-            t.onDelete(wG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.headers ? n([200, e.headers.customer]) : r([400, 'Cannot delete customer']);
-                        });
-                    })
-            ),
-            t.onGet(TG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            HL ? e([200, HL]) : n([400, 'Cannot get shops data']);
-                        });
-                    })
-            ),
-            t.onGet(SG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            FL ? e([200, FL]) : n([400, 'Cannot get wallet data']);
-                        });
-                    })
-            ),
-            t.onGet(Vje).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            VL ? e([200, VL]) : n([400, 'Cannot get productData']);
-                        });
-                    })
-            ),
-            t.onGet(bG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            UL ? e([200, UL]) : n([400, 'Cannot get orders']);
-                        });
-                    })
-            ),
-            t.onGet(AG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            by ? e([200, by]) : n([400, 'Cannot get invoices']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${xG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (by) {
-                                const { params: i } = e,
-                                    s = by.find((o) => o.id.toString() === i.id.toString());
-                                n([200, s]);
-                            } else r([400, 'Cannot get invoice']);
-                        });
-                    })
-            ),
-            t.onGet(DG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            Ay ? e([200, Ay]) : n([400, 'Cannot get projects']);
-                        });
-                    })
-            ),
-            t.onGet(IG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            ij ? e([200, ij]) : n([400, 'Cannot get jobs']);
-                        });
-                    })
-            ),
-            t.onPost(CG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot add job List']);
-                        });
-                    })
-            ),
-            t.onPut(RG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.data ? n([200, e.data]) : r([400, 'Cannot update job List']);
-                        });
-                    })
-            ),
-            t.onDelete(PG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.headers ? n([200, e.headers.job]) : r([400, 'Cannot delete Job List']);
-                        });
-                    })
-            ),
-            t.onGet(OG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            sj ? e([200, sj]) : n([400, 'Cannot get jobsApply']);
-                        });
-                    })
-            ),
-            t.onDelete(NG).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            e && e.headers ? n([200, e.headers.data]) : r([400, 'Cannot delete Job']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${kG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        setTimeout(() => {
-                            if (Ay) {
-                                const { params: i } = e,
-                                    s = Ay.find((o) => o.id.toString() === i.id.toString());
-                                n([200, s]);
-                            } else r([400, 'Cannot get project detail']);
-                        });
-                    })
-            ),
-            t.onGet($G).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            BL ? e([200, BL]) : n([400, 'Cannot get tasks']);
-                        });
-                    })
-            ),
-            t.onGet(FG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            ZL ? e([200, ZL]) : n([400, 'Cannot get users']);
-                        });
-                    })
-            ),
-            t.onGet(VG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            ej ? e([200, ej]) : n([400, 'Cannot get user profile']);
-                        });
-                    })
-            ),
-            t.onGet(WG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            rj ? e([200, rj]) : n([400, 'Cannot get wallet data']);
-                        });
-                    })
-            ),
-            t.onGet(HG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            tj ? e([200, tj]) : n([400, 'Cannot get wallet data']);
-                        });
-                    })
-            ),
-            t.onGet(qG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            nj ? e([200, nj]) : n([400, 'Cannot get wallet data']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${KG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { params: i } = e;
-                        setTimeout(() => {
-                            if (i && i.month) {
-                                var s = [];
-                                i.month === 'jan' ? (s = uMe) : i.month === 'dec' ? (s = dMe) : i.month === 'nov' ? (s = hMe) : i.month === 'oct' && (s = fMe), n([200, s]);
-                            } else r([400, 'Cannot get selling data']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${YG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { params: i } = e;
-                        setTimeout(() => {
-                            if (i && i.month) {
-                                const { params: o } = e;
-                                var s = [];
-                                o.month === 'jan' ? (s = pMe) : o.month === 'dec' ? (s = mMe) : o.month === 'nov' ? (s = gMe) : o.month === 'oct' && (s = yMe), n([200, s]);
-                            } else r([400, 'Cannot get earning data']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${GG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { params: i } = e;
-                        setTimeout(() => {
-                            if (i && i.duration) {
-                                const { params: o } = e;
-                                var s = [];
-                                o.duration === 'onemonth'
-                                    ? (s = Iy.onemonth)
-                                    : o.duration === 'sixmonth'
-                                      ? (s = Iy.sixmonth)
-                                      : o.duration === 'year'
-                                        ? (s = Iy.year)
-                                        : (s = Iy.all),
+                }),
+                t.onGet(Qz).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                xy ? e([200, xy]) : n([400, 'Cannot get products']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${Yz}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (xy) {
+                                    const { params: i } = e,
+                                        s = xy.find((o) => o.id.toString() === i.id.toString());
+                                    n([200, { ...s, recentProducts: aMe, comments: lMe }]);
+                                } else r([400, 'Cannot get product detail']);
+                            });
+                        })
+                ),
+                t.onGet(rG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                YL ? e([200, YL]) : n([400, 'Cannot get events']);
+                            });
+                        })
+                ),
+                t.onGet(Zz).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                ys.folders ? e([200, ys.folders]) : n([400, 'Cannot get folder']);
+                            });
+                        })
+                ),
+                t.onPost(Xz).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (ys.allmail) {
+                                    const i = JSON.parse(e.data),
+                                        { params: s } = i;
+                                    let o = [],
+                                        a = s;
+                                    if ((a || (a = 0), a !== 6)) {
+                                        const c = ys.folders.find((h) => h.id === a).id;
+                                        o = ys.allmail.filter((h) => h.folder === c);
+                                    } else o = ys.allmail.filter((c) => c.starred === !0);
+                                    n([200, o]);
+                                } else r([400, 'Cannot get allmail']);
+                            });
+                        })
+                ),
+                t.onPost(eG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (e && e.data) {
+                                    const i = JSON.parse(e.data),
+                                        s = Object.keys(i).map((o) => parseInt(i[o]));
+                                    n([200, s.length > 1 ? s : i[0]]);
+                                } else r([400, 'Cannot add selected mails']);
+                            });
+                        })
+                ),
+                t.onPost(tG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (e && e.data) {
+                                    const i = JSON.parse(e.data),
+                                        { selectedmails: s, folderId: o } = i;
+                                    (ys.allmail = ys.allmail.map((a) => (s.includes(a.id) ? { ...a, folder: parseInt(o) } : a))), n([200]);
+                                } else r([400, 'Cannot add selected mails']);
+                            });
+                        })
+                ),
+                t.onPut(nG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (e && e.data) {
+                                    const i = JSON.parse(e.data);
+                                    (ys.allmail = ys.allmail.map((s) => (s.id === i.id ? { ...s, ...i } : s))), n([200, i]);
+                                } else r([400, 'Cannot update mail data']);
+                            });
+                        })
+                ),
+                t.onPost(UG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot add user']);
+                            });
+                        })
+                ),
+                t.onPut(BG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot update user']);
+                            });
+                        })
+                ),
+                t.onDelete(zG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.headers ? n([200, e.headers.user]) : r([400, 'Cannot delete user']);
+                            });
+                        })
+                ),
+                t.onPost(LG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot add project']);
+                            });
+                        })
+                ),
+                t.onPut(jG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot update project']);
+                            });
+                        })
+                ),
+                t.onDelete(MG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.headers ? n([200, e.headers.project]) : r([400, 'Cannot delete project']);
+                            });
+                        })
+                ),
+                t.onPost(iG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot add event']);
+                            });
+                        })
+                ),
+                t.onPut(sG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot update event']);
+                            });
+                        })
+                ),
+                t.onDelete(oG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.headers ? n([200, e.headers.event]) : r([400, 'Cannot delete event']);
+                            });
+                        })
+                ),
+                t.onGet(aG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                XL ? e([200, XL]) : n([400, 'Cannot get categories']);
+                            });
+                        })
+                ),
+                t.onGet(lG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                qL ? e([200, qL]) : n([400, 'Cannot get chats']);
+                            });
+                        })
+                ),
+                t.onGet(cG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                KL ? e([200, KL]) : n([400, 'Cannot get groups']);
+                            });
+                        })
+                ),
+                t.onGet(uG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                JL ? e([200, JL]) : n([400, 'Cannot get contacts']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${dG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (QL) {
+                                    const { params: i } = e,
+                                        s = QL.filter((o) => o.roomId === i.roomId);
                                     n([200, s]);
-                            } else r([400, 'Cannot get visitor data']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${QG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { params: i } = e;
-                        setTimeout(() => {
-                            if (i && i.duration) {
-                                const { params: o } = e;
-                                var s = [];
-                                o.duration === 'month' ? (s = oS.month) : o.duration === 'week' ? (s = oS.week) : (s = oS.year), n([200, s]);
-                            } else r([400, 'Cannot get statistics data']);
-                        });
-                    })
-            ),
-            t.onGet(new RegExp(`${JG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { params: i } = e;
-                        setTimeout(() => {
-                            if (i && i.month) {
-                                const { params: o } = e;
-                                var s = [];
-                                o.month === 'jan' ? (s = EMe) : o.month === 'march' ? (s = vMe) : o.month === 'feb' ? (s = _Me) : o.month === 'dec' && (s = wMe), n([200, s]);
-                            } else r([400, 'Cannot get wallet balance data']);
-                        });
-                    })
-            ),
-            t.onGet(XG).reply(
-                () =>
-                    new Promise((e, n) => {
-                        setTimeout(() => {
-                            Xs ? e([200, Xs]) : n([400, 'Cannot get comment data']);
-                        });
-                    })
-            ),
-            t.onPost(new RegExp(`${iC}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { data: i } = e,
-                            { params: s } = JSON.parse(i);
-                        setTimeout(() => {
-                            if (Xs) {
-                                var o = [...Xs];
-                                const a = (o || []).findIndex((c) => c.commentId.toString() === s.commentId.toString());
-                                if (a > -1)
-                                    if (s.replyId && o[a].replies) {
-                                        const c = (o[a].replies || []).findIndex((h) => h.replyId.toString() === s.replyId.toString());
-                                        c > -1 && (o[a].replies[c].hasLiked ? (o[a].replies[c].hasLiked = !1) : (o[a].replies[c].hasLiked = !0));
-                                    } else o[a].hasLiked ? (o[a].hasLiked = !1) : (o[a].hasLiked = !0);
-                                n([200, o]);
-                            } else r([400, 'Cannot add comment']);
-                        });
-                    })
-            ),
-            t.onPost(new RegExp(`${ZG}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { data: i } = e,
-                            { params: s } = JSON.parse(i);
-                        setTimeout(() => {
-                            if (Xs) {
-                                const a = [...Xs],
-                                    c = (a || []).findIndex((p) => p.commentId.toString() === s.commentId.toString()),
-                                    f = new Date().getMinutes();
-                                if (c > -1) {
-                                    var o = 1;
-                                    if (a[c].replies && a[c].replies.length) {
-                                        const p = a[c].replies;
-                                        o = p[p.length - 1] + 1;
-                                        const g = {
-                                            commentId: s.commentId,
-                                            replyId: o,
-                                            user: { name: 'Admin', profile: 'avatar1' },
-                                            comment: s.replyText,
-                                            time: `${f} mins ago`,
-                                            hasLiked: !1
-                                        };
-                                        a[c].replies.push({ ...g }), (a[c].showAddComment = !1);
-                                    } else {
-                                        a[c].replies = [];
-                                        const p = {
-                                            commentId: s.commentId,
-                                            replyId: o,
-                                            user: { name: 'Admin', profile: 'avatar1' },
-                                            comment: s.replyText,
-                                            time: `${f} mins ago`,
-                                            hasLiked: !1
-                                        };
-                                        a[c].replies.push({ ...p });
+                                } else r([400, 'Cannot get messages']);
+                            });
+                        })
+                ),
+                t.onPost(hG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e.data ? n([200, e.data]) : r([400, 'Cannot add message']);
+                            });
+                        })
+                ),
+                t.onGet(fG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                zL ? e([200, zL]) : n([400, 'Cannot get orders']);
+                            });
+                        })
+                ),
+                t.onPost(pG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot add order']);
+                            });
+                        })
+                ),
+                t.onPut(mG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot update order']);
+                            });
+                        })
+                ),
+                t.onDelete(gG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.headers ? n([200, e.headers.order]) : r([400, 'Cannot delete order']);
+                            });
+                        })
+                ),
+                t.onGet(yG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                GL ? e([200, GL]) : n([400, 'Cannot get cart data']);
+                            });
+                        })
+                ),
+                t.onGet(vG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                WL ? e([200, WL]) : n([400, 'Cannot get customers data']);
+                            });
+                        })
+                ),
+                t.onPost(_G).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot add customer']);
+                            });
+                        })
+                ),
+                t.onPut(EG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot update customer']);
+                            });
+                        })
+                ),
+                t.onDelete(wG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.headers ? n([200, e.headers.customer]) : r([400, 'Cannot delete customer']);
+                            });
+                        })
+                ),
+                t.onGet(TG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                HL ? e([200, HL]) : n([400, 'Cannot get shops data']);
+                            });
+                        })
+                ),
+                t.onGet(SG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                FL ? e([200, FL]) : n([400, 'Cannot get wallet data']);
+                            });
+                        })
+                ),
+                t.onGet(Vje).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                VL ? e([200, VL]) : n([400, 'Cannot get productData']);
+                            });
+                        })
+                ),
+                t.onGet(bG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                UL ? e([200, UL]) : n([400, 'Cannot get orders']);
+                            });
+                        })
+                ),
+                t.onGet(AG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                by ? e([200, by]) : n([400, 'Cannot get invoices']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${xG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (by) {
+                                    const { params: i } = e,
+                                        s = by.find((o) => o.id.toString() === i.id.toString());
+                                    n([200, s]);
+                                } else r([400, 'Cannot get invoice']);
+                            });
+                        })
+                ),
+                t.onGet(DG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                Ay ? e([200, Ay]) : n([400, 'Cannot get projects']);
+                            });
+                        })
+                ),
+                t.onGet(IG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                ij ? e([200, ij]) : n([400, 'Cannot get jobs']);
+                            });
+                        })
+                ),
+                t.onPost(CG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot add job List']);
+                            });
+                        })
+                ),
+                t.onPut(RG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.data ? n([200, e.data]) : r([400, 'Cannot update job List']);
+                            });
+                        })
+                ),
+                t.onDelete(PG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.headers ? n([200, e.headers.job]) : r([400, 'Cannot delete Job List']);
+                            });
+                        })
+                ),
+                t.onGet(OG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                sj ? e([200, sj]) : n([400, 'Cannot get jobsApply']);
+                            });
+                        })
+                ),
+                t.onDelete(NG).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                e && e.headers ? n([200, e.headers.data]) : r([400, 'Cannot delete Job']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${kG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            setTimeout(() => {
+                                if (Ay) {
+                                    const { params: i } = e,
+                                        s = Ay.find((o) => o.id.toString() === i.id.toString());
+                                    n([200, s]);
+                                } else r([400, 'Cannot get project detail']);
+                            });
+                        })
+                ),
+                t.onGet($G).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                BL ? e([200, BL]) : n([400, 'Cannot get tasks']);
+                            });
+                        })
+                ),
+                t.onGet(FG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                ZL ? e([200, ZL]) : n([400, 'Cannot get users']);
+                            });
+                        })
+                ),
+                t.onGet(VG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                ej ? e([200, ej]) : n([400, 'Cannot get user profile']);
+                            });
+                        })
+                ),
+                t.onGet(WG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                rj ? e([200, rj]) : n([400, 'Cannot get wallet data']);
+                            });
+                        })
+                ),
+                t.onGet(HG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                tj ? e([200, tj]) : n([400, 'Cannot get wallet data']);
+                            });
+                        })
+                ),
+                t.onGet(qG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                nj ? e([200, nj]) : n([400, 'Cannot get wallet data']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${KG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { params: i } = e;
+                            setTimeout(() => {
+                                if (i && i.month) {
+                                    var s = [];
+                                    i.month === 'jan' ? (s = uMe) : i.month === 'dec' ? (s = dMe) : i.month === 'nov' ? (s = hMe) : i.month === 'oct' && (s = fMe), n([200, s]);
+                                } else r([400, 'Cannot get selling data']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${YG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { params: i } = e;
+                            setTimeout(() => {
+                                if (i && i.month) {
+                                    const { params: o } = e;
+                                    var s = [];
+                                    o.month === 'jan' ? (s = pMe) : o.month === 'dec' ? (s = mMe) : o.month === 'nov' ? (s = gMe) : o.month === 'oct' && (s = yMe), n([200, s]);
+                                } else r([400, 'Cannot get earning data']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${GG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { params: i } = e;
+                            setTimeout(() => {
+                                if (i && i.duration) {
+                                    const { params: o } = e;
+                                    var s = [];
+                                    o.duration === 'onemonth'
+                                        ? (s = Iy.onemonth)
+                                        : o.duration === 'sixmonth'
+                                          ? (s = Iy.sixmonth)
+                                          : o.duration === 'year'
+                                            ? (s = Iy.year)
+                                            : (s = Iy.all),
+                                        n([200, s]);
+                                } else r([400, 'Cannot get visitor data']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${QG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { params: i } = e;
+                            setTimeout(() => {
+                                if (i && i.duration) {
+                                    const { params: o } = e;
+                                    var s = [];
+                                    o.duration === 'month' ? (s = oS.month) : o.duration === 'week' ? (s = oS.week) : (s = oS.year), n([200, s]);
+                                } else r([400, 'Cannot get statistics data']);
+                            });
+                        })
+                ),
+                t.onGet(new RegExp(`${JG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { params: i } = e;
+                            setTimeout(() => {
+                                if (i && i.month) {
+                                    const { params: o } = e;
+                                    var s = [];
+                                    o.month === 'jan' ? (s = EMe) : o.month === 'march' ? (s = vMe) : o.month === 'feb' ? (s = _Me) : o.month === 'dec' && (s = wMe), n([200, s]);
+                                } else r([400, 'Cannot get wallet balance data']);
+                            });
+                        })
+                ),
+                t.onGet(XG).reply(
+                    () =>
+                        new Promise((e, n) => {
+                            setTimeout(() => {
+                                Xs ? e([200, Xs]) : n([400, 'Cannot get comment data']);
+                            });
+                        })
+                ),
+                t.onPost(new RegExp(`${iC}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { data: i } = e,
+                                { params: s } = JSON.parse(i);
+                            setTimeout(() => {
+                                if (Xs) {
+                                    var o = [...Xs];
+                                    const a = (o || []).findIndex((c) => c.commentId.toString() === s.commentId.toString());
+                                    if (a > -1)
+                                        if (s.replyId && o[a].replies) {
+                                            const c = (o[a].replies || []).findIndex((h) => h.replyId.toString() === s.replyId.toString());
+                                            c > -1 && (o[a].replies[c].hasLiked ? (o[a].replies[c].hasLiked = !1) : (o[a].replies[c].hasLiked = !0));
+                                        } else o[a].hasLiked ? (o[a].hasLiked = !1) : (o[a].hasLiked = !0);
+                                    n([200, o]);
+                                } else r([400, 'Cannot add comment']);
+                            });
+                        })
+                ),
+                t.onPost(new RegExp(`${ZG}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { data: i } = e,
+                                { params: s } = JSON.parse(i);
+                            setTimeout(() => {
+                                if (Xs) {
+                                    const a = [...Xs],
+                                        c = (a || []).findIndex((p) => p.commentId.toString() === s.commentId.toString()),
+                                        f = new Date().getMinutes();
+                                    if (c > -1) {
+                                        var o = 1;
+                                        if (a[c].replies && a[c].replies.length) {
+                                            const p = a[c].replies;
+                                            o = p[p.length - 1] + 1;
+                                            const g = {
+                                                commentId: s.commentId,
+                                                replyId: o,
+                                                user: { name: 'Admin', profile: 'avatar1' },
+                                                comment: s.replyText,
+                                                time: `${f} mins ago`,
+                                                hasLiked: !1
+                                            };
+                                            a[c].replies.push({ ...g }), (a[c].showAddComment = !1);
+                                        } else {
+                                            a[c].replies = [];
+                                            const p = {
+                                                commentId: s.commentId,
+                                                replyId: o,
+                                                user: { name: 'Admin', profile: 'avatar1' },
+                                                comment: s.replyText,
+                                                time: `${f} mins ago`,
+                                                hasLiked: !1
+                                            };
+                                            a[c].replies.push({ ...p });
+                                        }
                                     }
-                                }
-                                n([200, a]);
-                            } else r([400, 'Cannot add comment']);
-                        });
-                    })
-            ),
-            t.onPost(new RegExp(`${e9}/*`)).reply(
-                (e) =>
-                    new Promise((n, r) => {
-                        const { data: i } = e,
-                            { params: s } = JSON.parse(i);
-                        setTimeout(() => {
-                            if (Xs) {
-                                const o = [...Xs],
-                                    c = new Date().getMinutes(),
-                                    h = { commentId: o.length + 1, user: { name: 'Admin', profile: 'avatar1' }, comment: s.commentText, time: `${c} mins ago`, hasLiked: !1 };
-                                o.push({ ...h }), Xs.push({ ...h }), n([200, o]);
-                            } else r([400, 'Cannot add comment']);
-                        });
-                    })
-            );
-    };
+                                    n([200, a]);
+                                } else r([400, 'Cannot add comment']);
+                            });
+                        })
+                ),
+                t.onPost(new RegExp(`${e9}/*`)).reply(
+                    (e) =>
+                        new Promise((n, r) => {
+                            const { data: i } = e,
+                                { params: s } = JSON.parse(i);
+                            setTimeout(() => {
+                                if (Xs) {
+                                    const o = [...Xs],
+                                        c = new Date().getMinutes(),
+                                        h = { commentId: o.length + 1, user: { name: 'Admin', profile: 'avatar1' }, comment: s.commentText, time: `${c} mins ago`, hasLiked: !1 };
+                                    o.push({ ...h }), Xs.push({ ...h }), n([200, o]);
+                                } else r([400, 'Cannot add comment']);
+                            });
+                        })
+                );
+        };
     TMe();
     const n9 = (t) => {
         const { layoutType: e } = Oc((i) => ({ layoutType: i.Layout.layoutType }));

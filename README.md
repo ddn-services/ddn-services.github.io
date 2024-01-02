@@ -15,6 +15,7 @@ npm install
 ```bash
 npm run dev
 ```
+
 Open your browser and visit http://localhost:3000 to view the dashboard.
 
 ## Build for Production
@@ -24,6 +25,7 @@ To build the project for production:
 ```bash
 npm run build
 ```
+
 The optimized production build will be available in the dist directory.
 
 ## License

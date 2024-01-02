@@ -16,7 +16,6 @@
             padding-left: $input-padding-x;
             color: var(--#{$prefix}input-color);
         }
-        
 
         .select2-selection__arrow {
             height: 34px;
@@ -35,12 +34,11 @@
     }
 }
 
-[dir="rtl"]{
+[dir='rtl'] {
     .select2-selection__rendered {
         text-align: end;
     }
 }
-
 
 .select2-container--open {
     .select2-selection--single {
@@ -67,7 +65,7 @@
     .select2-results__option--highlighted[aria-selected] {
         background-color: $primary;
     }
-    .select2-results__option[aria-selected="true"] {
+    .select2-results__option[aria-selected='true'] {
         background-color: var(--#{$prefix}light);
         color: var(--#{$prefix}body-color);
         &:hover {
@@ -80,7 +78,7 @@
 .select2-results__option {
     padding: 6px 12px;
 }
-.select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered {
+.select2-container[dir='rtl'] .select2-selection--single .select2-selection__rendered {
     padding-left: $input-padding-x;
 }
 
@@ -163,8 +161,8 @@
 
         &.fa-flash {
             &::before {
-                content: "\f0e7";
-                font-family: "Font Awesome 5 Free";
+                content: '\f0e7';
+                font-family: 'Font Awesome 5 Free';
             }
         }
     }
