@@ -1,25 +1,25 @@
-import React, { useEffect } from 'react';
-import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from 'reactstrap';
-
-// Formik Validation
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
-
-// action
-import { registerUser, apiError } from '../../store/actions';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+// Formik validation
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+
+import { Row, Col, CardBody, Card, Alert, Container, Form, Input, FormFeedback, Label } from 'reactstrap';
+
+// actions
+import { loginUser } from '../../../store/actions';
 
 // import images
-import profileImg from '../../assets/images/profile-img.png';
-import logoImg from '../../assets/images/logo.svg';
+import profile from '../../../assets/images/profile-img.png';
+import logo from '../../../assets/images/logo.svg';
 
-const Register = (props) => {
-    document.title = 'Register | DDN Software';
-
+const Login = (props) => {
+    //meta title
+    document.title = 'Login | DDN Software';
     const dispatch = useDispatch();
 
     const validation = useFormik({
@@ -27,32 +27,24 @@ const Register = (props) => {
         enableReinitialize: true,
 
         initialValues: {
-            email: '',
-            username: '',
-            password: ''
+            email: 'admin@themesbrand.com' || '',
+            password: '123456' || ''
         },
         validationSchema: Yup.object({
             email: Yup.string().required('Please Enter Your Email'),
-            username: Yup.string().required('Please Enter Your Username'),
             password: Yup.string().required('Please Enter Your Password')
         }),
         onSubmit: (values) => {
-            dispatch(registerUser(values));
+            dispatch(loginUser(values, props.router.navigate));
         }
     });
 
-    const { user, registrationError, loading } = useSelector((state) => ({
-        user: state.Account.user,
-        registrationError: state.Account.registrationError,
-        loading: state.Account.loading
+    const { error } = useSelector((state) => ({
+        error: state.Login.error
     }));
 
-    useEffect(() => {
-        dispatch(apiError(''));
-    }, []);
-
     return (
-        <React.Fragment>
+        <>
             <div className="home-btn d-none d-sm-block">
                 <Link to="/" className="text-dark">
                     <i className="bx bx-home h2" />
@@ -65,23 +57,23 @@ const Register = (props) => {
                             <Card className="overflow-hidden">
                                 <div className="bg-primary bg-soft">
                                     <Row>
-                                        <Col className="col-7">
+                                        <Col xs={7}>
                                             <div className="text-primary p-4">
-                                                <h5 className="text-primary">Free Register</h5>
-                                                <p>Get your free Skote account now.</p>
+                                                <h5 className="text-primary">Welcome Back !</h5>
+                                                <p>Sign in to continue to Skote.</p>
                                             </div>
                                         </Col>
                                         <Col className="col-5 align-self-end">
-                                            <img src={profileImg} alt="" className="img-fluid" />
+                                            <img src={profile} alt="" className="img-fluid" />
                                         </Col>
                                     </Row>
                                 </div>
                                 <CardBody className="pt-0">
                                     <div>
-                                        <Link to="/">
+                                        <Link to="/" className="auth-logo-light">
                                             <div className="avatar-md profile-user-wid mb-4">
                                                 <span className="avatar-title rounded-circle bg-light">
-                                                    <img src={logoImg} alt="" className="rounded-circle" height="34" />
+                                                    <img src={logo} alt="" className="rounded-circle" height="34" />
                                                 </span>
                                             </div>
                                         </Link>
@@ -95,14 +87,11 @@ const Register = (props) => {
                                                 return false;
                                             }}
                                         >
-                                            {user && user ? <Alert color="success">Register User Successfully</Alert> : null}
-
-                                            {registrationError && registrationError ? <Alert color="danger">{registrationError}</Alert> : null}
+                                            {error ? <Alert color="danger">{error}</Alert> : null}
 
                                             <div className="mb-3">
                                                 <Label className="form-label">Email</Label>
                                                 <Input
-                                                    id="email"
                                                     name="email"
                                                     className="form-control"
                                                     placeholder="Enter email"
@@ -116,29 +105,14 @@ const Register = (props) => {
                                             </div>
 
                                             <div className="mb-3">
-                                                <Label className="form-label">Username</Label>
-                                                <Input
-                                                    name="username"
-                                                    type="text"
-                                                    placeholder="Enter username"
-                                                    onChange={validation.handleChange}
-                                                    onBlur={validation.handleBlur}
-                                                    value={validation.values.username || ''}
-                                                    invalid={validation.touched.username && validation.errors.username ? true : false}
-                                                />
-                                                {validation.touched.username && validation.errors.username ? (
-                                                    <FormFeedback type="invalid">{validation.errors.username}</FormFeedback>
-                                                ) : null}
-                                            </div>
-                                            <div className="mb-3">
                                                 <Label className="form-label">Password</Label>
                                                 <Input
                                                     name="password"
+                                                    value={validation.values.password || ''}
                                                     type="password"
                                                     placeholder="Enter Password"
                                                     onChange={validation.handleChange}
                                                     onBlur={validation.handleBlur}
-                                                    value={validation.values.password || ''}
                                                     invalid={validation.touched.password && validation.errors.password ? true : false}
                                                 />
                                                 {validation.touched.password && validation.errors.password ? (
@@ -146,19 +120,24 @@ const Register = (props) => {
                                                 ) : null}
                                             </div>
 
-                                            <div className="mt-4">
-                                                <button className="btn btn-primary btn-block " type="submit">
-                                                    Register
+                                            <div className="form-check">
+                                                <input type="checkbox" className="form-check-input" id="customControlInline" />
+                                                <label className="form-check-label" htmlFor="customControlInline">
+                                                    Remember me
+                                                </label>
+                                            </div>
+
+                                            <div className="mt-3 d-grid">
+                                                <button className="btn btn-primary btn-block" type="submit">
+                                                    Log In
                                                 </button>
                                             </div>
 
                                             <div className="mt-4 text-center">
-                                                <p className="mb-0">
-                                                    By registering you agree to the Skote{' '}
-                                                    <Link to="#" className="text-primary">
-                                                        Terms of Use
-                                                    </Link>
-                                                </p>
+                                                <Link to="/forgot-password" className="text-muted">
+                                                    <i className="mdi mdi-lock me-1" />
+                                                    Forgot your password?
+                                                </Link>
                                             </div>
                                         </Form>
                                     </div>
@@ -166,10 +145,10 @@ const Register = (props) => {
                             </Card>
                             <div className="mt-5 text-center">
                                 <p>
-                                    Already have an account ?{' '}
-                                    <Link to="/login" className="font-weight-medium text-primary">
+                                    Don&#39;t have an account ?{' '}
+                                    <Link to="/register" className="fw-medium text-primary">
                                         {' '}
-                                        Login
+                                        Signup now{' '}
                                     </Link>{' '}
                                 </p>
                                 <p>
@@ -180,8 +159,12 @@ const Register = (props) => {
                     </Row>
                 </Container>
             </div>
-        </React.Fragment>
+        </>
     );
 };
 
-export default Register;
+export default Login;
+
+Login.propTypes = {
+    history: PropTypes.object
+};
