@@ -1,10 +1,10 @@
-# DDN Dashboard - DDN Service
+# DDN Dashboard - DDN Services
 
-This is the system dashboard using the services provided by DevDaNang systems
+This is the system dashboard using the services provided by DevDaNang Services
 
 ## Install dependencies:
 
-Vite | Next Generation Frontend Tooling
+Nx | Next Generation Frontend Tooling
 
 ```bash
 npm install
