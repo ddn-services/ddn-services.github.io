@@ -1,0 +1,19 @@
+{
+  "name": "dashboard-systems",
+  "version": "1.0.0",
+  "title": "DevDaNang Admin Dashboard",
+  "description": "This is the system dashboard using the services provided by DevDaNang systems",
+  "author": {
+    "name": "DevDaNang"
+  },
+  "scripts": {
+    "start:golfdana": "nx serve golfdana",
+    "genarator": "nx g"
+  },
+  "devDependencies": {
+    "@nx/next": "^17.2.8"
+  },
+  "dependencies": {
+    "nx": "^17.2.8"
+  }
+}

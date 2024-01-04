@@ -4,10 +4,12 @@ This is the system dashboard using the services provided by DevDaNang Services
 
 ## Install dependencies:
 
-Nx | Next Generation Frontend Tooling
+### Nx | Next Generation Frontend Tooling
+
+Create a new Nx workspace
 
 ```bash
-npm install
+npx create-nx-workspace
 ```
 
 ## Run the development server:

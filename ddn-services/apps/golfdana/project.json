@@ -1,0 +1,58 @@
+{
+    "name": "golfdana",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/golfdana",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/next:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "outputPath": "dist/apps/golfdana"
+            },
+            "configurations": {
+                "development": {
+                    "outputPath": "apps/golfdana"
+                },
+                "production": {}
+            }
+        },
+        "serve": {
+            "executor": "@nx/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "golfdana:build",
+                "dev": true
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "golfdana:build:development",
+                    "dev": true
+                },
+                "production": {
+                    "buildTarget": "golfdana:build:production",
+                    "dev": false
+                }
+            }
+        },
+        "export": {
+            "executor": "@nx/next:export",
+            "options": {
+                "buildTarget": "golfdana:build:production"
+            }
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/golfdana/jest.config.ts"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"]
+        }
+    },
+    "tags": []
+}

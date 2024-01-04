@@ -1,0 +1,127 @@
+{
+  "nodes": {
+    "golfdana-e2e": {
+      "name": "golfdana-e2e",
+      "type": "lib",
+      "data": {
+        "root": "ddn-services/apps/golfdana-e2e",
+        "name": "golfdana-e2e",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/golfdana-e2e/src",
+        "targets": {
+          "e2e": {
+            "executor": "@nx/cypress:cypress",
+            "options": {
+              "cypressConfig": "apps/golfdana-e2e/cypress.config.ts",
+              "testingType": "e2e",
+              "devServerTarget": "golfdana:serve"
+            },
+            "configurations": {
+              "production": {
+                "devServerTarget": "golfdana:serve:production"
+              }
+            }
+          },
+          "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": [
+          "golfdana"
+        ]
+      }
+    },
+    "golfdana": {
+      "name": "golfdana",
+      "type": "app",
+      "data": {
+        "root": "ddn-services/apps/golfdana",
+        "name": "golfdana",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/golfdana",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "executor": "@nx/next:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "outputPath": "dist/apps/golfdana"
+            },
+            "configurations": {
+              "development": {
+                "outputPath": "apps/golfdana"
+              },
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "golfdana:build",
+              "dev": true
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "golfdana:build:development",
+                "dev": true
+              },
+              "production": {
+                "buildTarget": "golfdana:build:production",
+                "dev": false
+              }
+            }
+          },
+          "export": {
+            "executor": "@nx/next:export",
+            "options": {
+              "buildTarget": "golfdana:build:production"
+            },
+            "configurations": {}
+          },
+          "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "apps/golfdana/jest.config.ts"
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    }
+  },
+  "externalNodes": {},
+  "dependencies": {
+    "golfdana-e2e": [
+      {
+        "source": "golfdana-e2e",
+        "target": "golfdana",
+        "type": "implicit"
+      }
+    ],
+    "golfdana": []
+  },
+  "version": "6.0"
+}
