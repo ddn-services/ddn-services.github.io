@@ -126,13 +126,17 @@
           },
           "lint": {
             "executor": "@nx/eslint:lint",
-            "outputs": ["{options.outputFile}"],
+            "outputs": [
+              "{options.outputFile}"
+            ],
             "options": {},
             "configurations": {}
           }
         },
         "tags": [],
-        "implicitDependencies": ["golfdana"]
+        "implicitDependencies": [
+          "golfdana"
+        ]
       }
     },
     "golfdana": {
@@ -147,7 +151,9 @@
         "targets": {
           "build": {
             "executor": "@nx/next:build",
-            "outputs": ["{options.outputPath}"],
+            "outputs": [
+              "{options.outputPath}"
+            ],
             "defaultConfiguration": "production",
             "options": {
               "outputPath": "dist/apps/golfdana"
@@ -187,7 +193,9 @@
           },
           "test": {
             "executor": "@nx/jest:jest",
-            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
             "options": {
               "jestConfig": "apps/golfdana/jest.config.ts"
             },
@@ -195,7 +203,9 @@
           },
           "lint": {
             "executor": "@nx/eslint:lint",
-            "outputs": ["{options.outputFile}"],
+            "outputs": [
+              "{options.outputFile}"
+            ],
             "options": {},
             "configurations": {}
           }
