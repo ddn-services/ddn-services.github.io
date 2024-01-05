@@ -17,10 +17,7 @@
         {
           "file": "ddn-services/apps/golfdana-e2e/cypress.config.ts",
           "hash": "897031170864782730",
-          "deps": [
-            "npm:@nx/cypress/plugins/cypress-preset",
-            "npm:cypress"
-          ]
+          "deps": ["npm:@nx/cypress/plugins/cypress-preset", "npm:cypress"]
         },
         {
           "file": "ddn-services/apps/golfdana-e2e/project.json",
@@ -71,18 +68,12 @@
         {
           "file": "ddn-services/apps/golfdana/app/page.tsx",
           "hash": "7267276763088953102",
-          "deps": [
-            "npm:styled-components"
-          ]
+          "deps": ["npm:styled-components"]
         },
         {
           "file": "ddn-services/apps/golfdana/app/registry.tsx",
           "hash": "6258395398069339414",
-          "deps": [
-            "npm:react",
-            "npm:next/navigation",
-            "npm:styled-components"
-          ]
+          "deps": ["npm:react", "npm:next/navigation", "npm:styled-components"]
         },
         {
           "file": "ddn-services/apps/golfdana/index.d.ts",
@@ -99,9 +90,7 @@
         {
           "file": "ddn-services/apps/golfdana/next.config.js",
           "hash": "3963450049427945159",
-          "deps": [
-            "npm:@nx/next"
-          ]
+          "deps": ["npm:@nx/next"]
         },
         {
           "file": "ddn-services/apps/golfdana/project.json",
