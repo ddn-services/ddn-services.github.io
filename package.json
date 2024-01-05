@@ -7,13 +7,14 @@
     "name": "DevDaNang"
   },
   "scripts": {
-    "start:golfdana": "nx serve golfdana",
-    "genarator": "nx g"
+    "start:dev:golfdana": "env-cmd -f .env.dev nx serve golfdana",
+    "start:dev:ddn-dashboard": "env-cmd -f .env.dev nx serve ddn-dashboard"
   },
   "devDependencies": {
     "@nx/eslint-plugin": "^17.2.8",
     "@nx/next": "^17.2.8",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "env-cmd": "^10.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-react": "^7.33.2"

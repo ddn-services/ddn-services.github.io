@@ -2,86 +2,54 @@
   "version": "6.0",
   "nxVersion": "17.2.8",
   "deps": {
+    "husky": "^8.0.3",
     "nx": "^17.2.8",
-    "@nx/next": "^17.2.8"
+    "@nx/eslint-plugin": "^17.2.8",
+    "@nx/next": "^17.2.8",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "env-cmd": "^10.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2"
   },
   "pathMappings": {},
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "golfdana-e2e": [
-        {
-          "file": "ddn-services/apps/golfdana-e2e/.eslintrc.json",
-          "hash": "2884550526701031659"
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/cypress.config.ts",
-          "hash": "897031170864782730",
-          "deps": ["npm:@nx/cypress/plugins/cypress-preset", "npm:cypress"]
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/project.json",
-          "hash": "10523783858913446034"
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/src/e2e/app.cy.ts",
-          "hash": "5171160741865498037"
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/src/fixtures/example.json",
-          "hash": "8244047265829016264"
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/src/support/app.po.ts",
-          "hash": "11157016311132186162"
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/src/support/commands.ts",
-          "hash": "4709268516280968380"
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/src/support/e2e.ts",
-          "hash": "1054106023200826784"
-        },
-        {
-          "file": "ddn-services/apps/golfdana-e2e/tsconfig.json",
-          "hash": "6688182393610425704"
-        }
-      ],
       "golfdana": [
         {
           "file": "ddn-services/apps/golfdana/.eslintrc.json",
-          "hash": "17295842576166614922"
+          "hash": "264947474570205922"
         },
         {
           "file": "ddn-services/apps/golfdana/app/api/hello/route.ts",
-          "hash": "7117024283649463605"
+          "hash": "495073956729887886"
         },
         {
           "file": "ddn-services/apps/golfdana/app/global.css",
-          "hash": "5501588476031683866"
+          "hash": "5221762088766465567"
         },
         {
           "file": "ddn-services/apps/golfdana/app/layout.tsx",
-          "hash": "3981816149801060707"
+          "hash": "2051000049609922018"
         },
         {
           "file": "ddn-services/apps/golfdana/app/page.tsx",
-          "hash": "7267276763088953102",
+          "hash": "8340099755956652575",
           "deps": ["npm:styled-components"]
         },
         {
           "file": "ddn-services/apps/golfdana/app/registry.tsx",
-          "hash": "6258395398069339414",
+          "hash": "17199493182064035791",
           "deps": ["npm:react", "npm:next/navigation", "npm:styled-components"]
         },
         {
           "file": "ddn-services/apps/golfdana/index.d.ts",
-          "hash": "2662614236746528040"
+          "hash": "5498222895072842432"
         },
         {
           "file": "ddn-services/apps/golfdana/jest.config.ts",
-          "hash": "6346372713987081738"
+          "hash": "10962197256401725465"
         },
         {
           "file": "ddn-services/apps/golfdana/next-env.d.ts",
@@ -89,12 +57,12 @@
         },
         {
           "file": "ddn-services/apps/golfdana/next.config.js",
-          "hash": "3963450049427945159",
+          "hash": "4408040974189738317",
           "deps": ["npm:@nx/next"]
         },
         {
           "file": "ddn-services/apps/golfdana/project.json",
-          "hash": "9088826907340527060"
+          "hash": "8385482082608951606"
         },
         {
           "file": "ddn-services/apps/golfdana/public/.gitkeep",
@@ -106,15 +74,162 @@
         },
         {
           "file": "ddn-services/apps/golfdana/tsconfig.json",
-          "hash": "15348740619547848398"
+          "hash": "15346939467642301615"
         },
         {
           "file": "ddn-services/apps/golfdana/tsconfig.spec.json",
-          "hash": "484497571273276927"
+          "hash": "6922413205408300107"
+        }
+      ],
+      "golfdana-e2e": [
+        {
+          "file": "ddn-services/apps/golfdana-e2e/.eslintrc.json",
+          "hash": "14060216369337943343"
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/cypress.config.ts",
+          "hash": "3864015509442847795",
+          "deps": ["npm:@nx/cypress/plugins/cypress-preset", "npm:cypress"]
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/project.json",
+          "hash": "9950492711794782020"
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/src/e2e/app.cy.ts",
+          "hash": "5427161465424757989"
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/src/fixtures/example.json",
+          "hash": "11785586596216172004"
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/src/support/commands.ts",
+          "hash": "5397443931564808659"
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "ddn-services/apps/golfdana-e2e/tsconfig.json",
+          "hash": "12140551245364965473"
+        }
+      ],
+      "ddn-dashboard": [
+        {
+          "file": "ddn-software/apps/ddn-dashboard/.eslintrc.json",
+          "hash": "17685618211448152626"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/app/api/hello/route.ts",
+          "hash": "495073956729887886"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/app/global.css",
+          "hash": "5221762088766465567"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/app/layout.tsx",
+          "hash": "2051000049609922018"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/app/page.tsx",
+          "hash": "11908395149565399006",
+          "deps": ["npm:styled-components"]
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/app/registry.tsx",
+          "hash": "17199493182064035791",
+          "deps": ["npm:react", "npm:next/navigation", "npm:styled-components"]
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/jest.config.ts",
+          "hash": "13796363474889441626"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/next.config.js",
+          "hash": "4408040974189738317",
+          "deps": ["npm:@nx/next"]
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/project.json",
+          "hash": "16851030504655536661"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/tsconfig.json",
+          "hash": "2200830038334601893"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard/tsconfig.spec.json",
+          "hash": "6922413205408300107"
+        }
+      ],
+      "ddn-dashboard-e2e": [
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/.eslintrc.json",
+          "hash": "14060216369337943343"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/cypress.config.ts",
+          "hash": "3864015509442847795",
+          "deps": ["npm:@nx/cypress/plugins/cypress-preset", "npm:cypress"]
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/project.json",
+          "hash": "14845673384466462131"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/src/e2e/app.cy.ts",
+          "hash": "2534592407278747299"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/src/fixtures/example.json",
+          "hash": "11785586596216172004"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/src/support/commands.ts",
+          "hash": "5397443931564808659"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "ddn-software/apps/ddn-dashboard-e2e/tsconfig.json",
+          "hash": "12140551245364965473"
         }
       ]
     },
     "nonProjectFiles": [
+      {
+        "file": ".env.dev",
+        "hash": "3244421341483603138"
+      },
       {
         "file": ".env.examples",
         "hash": "5373642938833589106"
@@ -125,7 +240,7 @@
       },
       {
         "file": ".eslintrc.json",
-        "hash": "6590090705302534948"
+        "hash": "69943495903893866"
       },
       {
         "file": ".gitignore",
@@ -137,7 +252,7 @@
       },
       {
         "file": ".prettierrc",
-        "hash": "12305192352419085383"
+        "hash": "13901476917427252052"
       },
       {
         "file": "LICENSE",
@@ -145,43 +260,43 @@
       },
       {
         "file": "README.md",
-        "hash": "17312456550513184036"
+        "hash": "12063690312500815828"
       },
       {
         "file": "ddn-services/.editorconfig",
-        "hash": "5443105041930014821"
+        "hash": "11532813898455409296"
       },
       {
         "file": "ddn-services/.eslintignore",
-        "hash": "7663861978715868291"
+        "hash": "13404745306227114823"
       },
       {
         "file": "ddn-services/.eslintrc.json",
-        "hash": "7528327399702426422"
+        "hash": "17866138117546000433"
       },
       {
         "file": "ddn-services/.gitignore",
-        "hash": "5996992415103590475"
+        "hash": "727759453543763952"
       },
       {
         "file": "ddn-services/.prettierignore",
-        "hash": "16448050467312557263"
+        "hash": "2687824826588932174"
       },
       {
         "file": "ddn-services/.prettierrc",
-        "hash": "12305192352419085383"
+        "hash": "13901476917427252052"
       },
       {
         "file": "ddn-services/.vscode/extensions.json",
-        "hash": "16462137918835934264"
+        "hash": "8407723965504764325"
       },
       {
         "file": "ddn-services/README.md",
-        "hash": "8814113935358637146"
+        "hash": "5129480279389161135"
       },
       {
         "file": "ddn-services/jest.config.ts",
-        "hash": "7753889811013241299"
+        "hash": "7750561865063918804"
       },
       {
         "file": "ddn-services/jest.preset.js",
@@ -189,19 +304,71 @@
       },
       {
         "file": "ddn-services/nx.json",
-        "hash": "9678393331183997138"
+        "hash": "3701130630545699407"
       },
       {
         "file": "ddn-services/package.json",
-        "hash": "8804740435748345410"
+        "hash": "11237287398316134402"
       },
       {
         "file": "ddn-services/tsconfig.base.json",
-        "hash": "12574420448619766820"
+        "hash": "16936441711144470533"
+      },
+      {
+        "file": "ddn-software/.editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "ddn-software/.eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "ddn-software/.eslintrc.json",
+        "hash": "17866138117546000433"
+      },
+      {
+        "file": "ddn-software/.gitignore",
+        "hash": "5996992415103590475"
+      },
+      {
+        "file": "ddn-software/.prettierignore",
+        "hash": "16448050467312557263"
+      },
+      {
+        "file": "ddn-software/.prettierrc",
+        "hash": "13901476917427252052"
+      },
+      {
+        "file": "ddn-software/.vscode/extensions.json",
+        "hash": "8407723965504764325"
+      },
+      {
+        "file": "ddn-software/README.md",
+        "hash": "15891754024255337644"
+      },
+      {
+        "file": "ddn-software/jest.config.ts",
+        "hash": "7750561865063918804"
+      },
+      {
+        "file": "ddn-software/jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "ddn-software/nx.json",
+        "hash": "13545565377534494353"
+      },
+      {
+        "file": "ddn-software/package.json",
+        "hash": "11237333402405122111"
+      },
+      {
+        "file": "ddn-software/tsconfig.base.json",
+        "hash": "16936441711144470533"
       },
       {
         "file": "package.json",
-        "hash": "5093576732804780807"
+        "hash": "12666305975249675963"
       }
     ]
   }

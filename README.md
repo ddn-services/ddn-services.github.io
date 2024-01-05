@@ -14,13 +14,17 @@ npx create-nx-workspace
 
 ## Run the development server:
 
-### GolfDaNa Project
+- **GolfDaNa Project**
 
 ```bash
-npm run start:golfdana
+npm run start:dev:golfdana
 ```
 
 Open your browser and visit http://localhost:3000 to view the dashboard.
+
+- **DDN Software Dashboard Project**
+
+Updating
 
 ## Build for Production
 
