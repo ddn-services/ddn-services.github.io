@@ -1,7 +1,7 @@
 {
-  "name": "golfdana",
+  "name": "ddn-dashboard",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/golfdana",
+  "sourceRoot": "apps/ddn-dashboard",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,11 +9,11 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/golfdana"
+        "outputPath": "dist/apps/ddn-dashboard"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/golfdana"
+          "outputPath": "apps/ddn-dashboard"
         },
         "production": {}
       }
@@ -22,17 +22,17 @@
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "golfdana:build",
+        "buildTarget": "ddn-dashboard:build",
         "dev": true,
-        "port": 3000
+        "port": 3001
       },
       "configurations": {
         "development": {
-          "buildTarget": "golfdana:build:development",
+          "buildTarget": "ddn-dashboard:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "golfdana:build:production",
+          "buildTarget": "ddn-dashboard:build:production",
           "dev": false
         }
       }
@@ -40,14 +40,14 @@
     "export": {
       "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "golfdana:build:production"
+        "buildTarget": "ddn-dashboard:build:production"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/golfdana/jest.config.ts"
+        "jestConfig": "apps/ddn-dashboard/jest.config.ts"
       }
     },
     "lint": {
