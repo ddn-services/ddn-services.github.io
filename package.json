@@ -20,8 +20,11 @@
     "eslint-plugin-react": "^7.33.2"
   },
   "dependencies": {
+    "@nx/workspace": "^17.2.8",
+    "@reduxjs/toolkit": "^2.0.1",
     "husky": "^8.0.3",
-    "nx": "^17.2.8"
+    "nx": "^17.2.8",
+    "react-redux": "^9.0.4"
   },
   "husky": {
     "hooks": {

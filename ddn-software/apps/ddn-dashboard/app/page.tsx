@@ -20,7 +20,7 @@ export default async function Index() {
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              Welcome ddn-dashboard 👋
+              Welcome ddn-dacccchasdasdasdboard 👋
             </h1>
           </div>
 
@@ -246,7 +246,7 @@ export default async function Index() {
                 <span># run tests for current changes</span>
                 nx affected:test
                 <span># run e2e tests for current changes</span>
-                nx affected:e2e
+                nx affectesdsdaadsasdd:e2e
               </pre>
             </details>
           </div>
