@@ -11,8 +11,8 @@
     "start:dev:ddn-dashboard": "env-cmd -f .env.dev nx serve ddn-dashboard"
   },
   "devDependencies": {
-    "@nx/eslint-plugin": "^17.2.8",
-    "@nx/next": "^17.2.8",
+    "@nx/eslint-plugin": "17.2.8",
+    "@nx/next": "17.2.8",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "env-cmd": "^10.1.0",
     "eslint-config-prettier": "^9.1.0",
@@ -20,10 +20,10 @@
     "eslint-plugin-react": "^7.33.2"
   },
   "dependencies": {
-    "@nx/workspace": "^17.2.8",
+    "@nx/workspace": "17.2.8",
     "@reduxjs/toolkit": "^2.0.1",
     "husky": "^8.0.3",
-    "nx": "^17.2.8",
+    "nx": "17.2.8",
     "react-redux": "^9.0.4"
   },
   "husky": {
@@ -41,3 +41,4 @@
     ]
   }
 }
+
