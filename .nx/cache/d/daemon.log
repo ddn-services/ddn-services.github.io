@@ -1,0 +1,16 @@
+[NX Daemon Server] - 2024-01-10T09:15:32.689Z - Started listening on: \\.\pipe\nx\C:\Users\LONG~1.THA\AppData\Local\Temp\4d8e633c589f4a9fb30e\d.sock
+[NX Daemon Server] - 2024-01-10T09:15:32.692Z - [WATCHER]: Subscribed to changes within: F:\QuangLong-BanVien\Learning\ddn-services.github.io (native)
+[NX Daemon Server] - 2024-01-10T09:15:32.694Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-01-10T09:15:32.696Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-01-10T09:15:32.698Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-01-10T09:15:32.699Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-01-10T09:15:32.709Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-01-10T09:15:32.709Z - [REQUEST]: 
+[NX Daemon Server] - 2024-01-10T09:15:32.709Z - [REQUEST]: 
+[NX Daemon Server] - 2024-01-10T09:15:32.813Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-01-10T09:15:32.814Z - Time taken for 'total for creating and serializing project graph' 114.23679999999999ms
+[NX Daemon Server] - 2024-01-10T09:15:32.815Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-01-10T09:15:32.815Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 114. Response time: 2.
+[NX Daemon Server] - 2024-01-10T09:15:32.839Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-01-10T09:15:32.839Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-01-10T09:15:32.839Z - Handled HASH_TASKS. Handling time: 2. Response time: 0.
