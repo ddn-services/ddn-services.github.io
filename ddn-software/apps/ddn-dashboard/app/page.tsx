@@ -8,6 +8,7 @@ export default async function IndexPage() {
       href={{
         pathname: '/*'
       }}
+      
     ></Link>
   );
 }

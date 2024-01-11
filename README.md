@@ -12,6 +12,14 @@ Create a new Nx workspace
 npx create-nx-workspace
 ```
 
+### Create lib
+
+Example create lib in projects
+
+```bash
+npx nx g @nx/next:library --name="name" --directory=libs/modules --buildable --component --importPath=@ddnsoftware/"name" --publishable --routing
+```
+
 ## Run the development server:
 
 - **DDN Software Dashboard Project**

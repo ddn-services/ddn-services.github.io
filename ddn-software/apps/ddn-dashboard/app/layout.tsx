@@ -4,7 +4,7 @@ import './global.css';
 import { StyledComponentsRegistry } from './registry';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/styles';
-
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -27,9 +27,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <ReduxProvider>
-          <StyledComponentsRegistry>
+          <AntdRegistry>
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
-          </StyledComponentsRegistry>
+          </AntdRegistry>
         </ReduxProvider>
       </body>
     </html>
