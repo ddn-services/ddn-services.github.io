@@ -16,7 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@ddnsoftware/auth": ["libs/modules/auth/src/index.ts"],
-      "@ddnsoftware/auth/server": ["libs/modules/auth/src/server.ts"]
+      "@ddnsoftware/auth/server": ["libs/modules/auth/src/server.ts"],
+      "@ddnsoftware/common": ["libs/common/src/index.ts"],
+      "@ddnsoftware/common/server": ["libs/common/src/server.ts"],
+      "@ddnsoftware/components": ["libs/components/src/index.ts"],
+      "@ddnsoftware/components/server": ["libs/components/src/server.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
