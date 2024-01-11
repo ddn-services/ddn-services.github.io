@@ -12,6 +12,12 @@ Create a new Nx workspace
 npx create-nx-workspace
 ```
 
+### Create lib
+
+```bash
+npx nx g @nx/lib
+```
+
 ## Run the development server:
 
 - **GolfDaNa Project**
