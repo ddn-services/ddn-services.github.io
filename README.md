@@ -4,19 +4,33 @@ This is the system dashboard using the services provided by DevDaNang Services
 
 ## Install dependencies:
 
-Nx | Next Generation Frontend Tooling
+### Nx | Next Generation Frontend Tooling
+
+Create a new Nx workspace
 
 ```bash
-npm install
+npx create-nx-workspace
+```
+
+### Create lib
+
+```bash
+npx nx g @nx/lib
 ```
 
 ## Run the development server:
 
+- **GolfDaNa Project**
+
 ```bash
-npm run dev
+npm run start:dev:golfdana
 ```
 
 Open your browser and visit http://localhost:3000 to view the dashboard.
+
+- **DDN Software Dashboard Project**
+
+Updating
 
 ## Build for Production
 
