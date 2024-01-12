@@ -1,7 +1,6 @@
 'use client';
 import { ReduxProvider } from 'apps/ddn-dashboard/redux/provider';
 import './global.css';
-import { StyledComponentsRegistry } from './registry';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/styles';
 import { AntdRegistry } from '@ant-design/nextjs-registry';

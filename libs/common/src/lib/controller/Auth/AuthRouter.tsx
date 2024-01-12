@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { ROUTE_STRING } from '../../constants';
-import { setToken } from '../../utils';
-
-const AuthRouter = ({ children }: { children: React.ReactNode }) => {
+import { ROUTE_STRING, setToken } from '@ddnsoftware/common';
+import { Outlet } from 'react-router-dom';
+const AuthRouter = () => {
   const searchParams = useSearchParams();
 
   const localToken = localStorage.getItem('access_token') || sessionStorage.getItem('access_token') || searchParams.get('access_token');
@@ -21,6 +20,6 @@ const AuthRouter = ({ children }: { children: React.ReactNode }) => {
   if (!localToken) {
     return <Link href={ROUTE_STRING.LOGIN_PAGE} />;
   }
-  return <>{children}</>;
+  return <Outlet />;
 };
 export default AuthRouter;
